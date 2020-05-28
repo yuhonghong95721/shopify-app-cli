@@ -6,6 +6,7 @@ module ShopifyCli
         :project_creator_command_class,
         :project_load_shallow
       attr_reader :hidden
+      attr_reader :hidden_feature_set
 
       def repository
         @repository ||= []
@@ -53,8 +54,13 @@ module ShopifyCli
         const_get(@project_creator_command_class)
       end
 
-      def hidden_project_type
+      def hidden_project_type(feature_set: nil)
         @hidden = true
+        @hidden_feature_set = feature_set
+      end
+
+      def hidden?
+        @hidden && !ShopifyCli::Feature.enabled?(@hidden_feature_set)
       end
 
       def register_command(const, cmd)

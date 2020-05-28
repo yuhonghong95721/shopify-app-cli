@@ -3,7 +3,7 @@ require 'shopify_cli'
 module ShopifyCli
   module Commands
     class LoadSystem < ShopifyCli::Command
-      hidden_command
+      hidden_command(feature_set: :debug)
 
       def call(_args, _name)
         @ctx.done(@ctx.message('core.load_system.reloading', TOOL_FULL_NAME, ShopifyCli::INSTALL_DIR))

@@ -48,6 +48,17 @@ module ShopifyCli
           saved: "%s saved to project root",
         },
 
+        feature: {
+          help: <<~HELP,
+          Enable or Disable a feature in the CLI
+            Usage: {{command:%s feature [ enable | disable ] [ feature_name ] }}
+          HELP
+          enabled: "{{v}} feature {{green:%s}} was enabled",
+          disabled: "{{v}} feature {{green:%s}} was disabled",
+          already_enabled: "{{x}} feature {{green:%s}} has already been enabled",
+          already_disabled: "{{x}} feature {{green:%s}} was not already enabled",
+        },
+
         git: {
           error: {
             directory_exists: "Project directory already exists. Please create a project with a new name.",

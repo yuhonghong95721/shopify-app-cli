@@ -8,7 +8,6 @@ module ShopifyCli
 
     class << self
       attr_writer :ctx
-      attr_reader :hidden
 
       def call(args, command_name)
         subcommand, resolved_name = subcommand_registry.lookup_command(args.first)
@@ -23,8 +22,13 @@ module ShopifyCli
         end
       end
 
-      def hidden_command
+      def hidden_command(feature_set: nil)
         @hidden = true
+        @hidden_feature_set = feature_set
+      end
+
+      def hidden?
+        @hidden && !ShopifyCli::Feature.enabled?(@hidden_feature_set)
       end
 
       def options(&block)
