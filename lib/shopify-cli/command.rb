@@ -3,6 +3,8 @@ require 'shopify_cli'
 
 module ShopifyCli
   class Command < CLI::Kit::BaseCommand
+    extend Feature::Set
+
     attr_writer :ctx
     attr_accessor :options
 
@@ -20,15 +22,6 @@ module ShopifyCli
           return call_help(command_name) if cmd.options.help
           cmd.call(args, command_name)
         end
-      end
-
-      def hidden_command(feature_set: nil)
-        @hidden = true
-        @hidden_feature_set = feature_set
-      end
-
-      def hidden?
-        @hidden && !ShopifyCli::Feature.enabled?(@hidden_feature_set)
       end
 
       def options(&block)

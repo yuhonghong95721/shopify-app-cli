@@ -48,15 +48,15 @@ module ShopifyCli
           saved: "%s saved to project root",
         },
 
-        feature: {
+        config: {
           help: <<~HELP,
-          Enable or Disable a feature in the CLI
-            Usage: {{command:%s feature [ enable | disable ] [ feature_name ] }}
+          Change configuration of how the CLI operates
+            Usage: {{command:%s config [ feature ] [ feature_name ] }}
           HELP
-          enabled: "{{v}} feature {{green:%s}} was enabled",
-          disabled: "{{v}} feature {{green:%s}} was disabled",
-          already_enabled: "{{x}} feature {{green:%s}} has already been enabled",
-          already_disabled: "{{x}} feature {{green:%s}} was not already enabled",
+          feature: {
+            enabled: "{{v}} feature {{green:%s}} was enabled",
+            disabled: "{{v}} feature {{green:%s}} was disabled",
+          }
         },
 
         git: {
