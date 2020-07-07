@@ -130,7 +130,7 @@ module Script
             \s\sOptions:
               \s\s{{command:--API_key=<API_key>}} API key. Must be a valid API key, otherwise store access fails.
               \s\s{{command:--shop_domain=<my_store.myshopify.com>}} Test store URL. Must be an existing test store.
-              \s\s{{command:--config_props=name1:value1, name2:value2}} Optional. Define the configuration of your script by passing individual name and value pairs. If used with --config_file, then matching values in --config_props will override those set in the file.
+              \s\s{{command:--config_props='name1:value1, name2:value2'}} Optional. Define the configuration of your script by passing individual name and value pairs. If used with --config_file, then matching values in --config_props will override those set in the file.
               \s\s{{command:--config_file=<path/to/JSONFilename>}} Optional. Define the configuration of your script using a JSON formatted file. --config_props values override properties in this file.
           HELP
 
